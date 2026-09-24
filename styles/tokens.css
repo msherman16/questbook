@@ -1,0 +1,199 @@
+/* =====================================================================
+   Questbook "Field Notes" design tokens
+   Gender-neutral palette: spruce (primary) + marigold (rewards) on warm
+   paper. Subject hues are named after nature, never people.
+   ===================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* Type */
+  --font-display: "Lexend", ui-rounded, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.375rem;
+  --fs-2xl: 1.875rem;
+  --fs-3xl: 2.5rem;
+  --lh-tight: 1.2;
+  --lh-body: 1.55;
+
+  /* Space (4px base) */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.5rem;
+  --sp-6: 2rem;
+  --sp-7: 3rem;
+
+  /* Shape */
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 18px;
+  --r-xl: 26px;
+  --r-pill: 999px;
+
+  /* Motion */
+  --dur-fast: 120ms;
+  --dur: 220ms;
+  --dur-slow: 420ms;
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Layout */
+  --control-h: 2.5rem;
+  --sidebar-w: 264px;
+  --content-max: 1180px;
+
+  /* Neutrals — warm paper */
+  --bg: #f5f3ee;
+  --surface: #ffffff;
+  --surface-2: #efece5;
+  --surface-3: #e4e0d6;
+  --border: #e0dcd2;
+  --border-strong: #c7c1b3;
+  --text: #1c1f1e;
+  --text-2: #4f5552;
+  --text-3: #6f7672;
+
+  /* Brand */
+  --primary: #0d7a68;
+  --primary-hover: #0a6556;
+  --primary-soft: #d9efe9;
+  --primary-ink: #064b40;
+  --on-primary: #ffffff;
+  --focus: #0d7a68;
+
+  /* Rewards */
+  --xp: #e0a100;
+  --xp-strong: #b98400;
+  --xp-soft: #fbf0cf;
+  --xp-ink: #6b4a00;
+
+  /* Feedback */
+  --success: #2c7a38;
+  --success-soft: #dcefdc;
+  --warning: #9a5b00;
+  --warning-soft: #fbead0;
+  --danger: #b3381f;
+  --danger-soft: #f8ddd6;
+  --info: #28679f;
+  --info-soft: #dde9f5;
+
+  /* Subject palette */
+  --c-ember: #e0592e;
+  --c-sun: #d69b00;
+  --c-moss: #4c8c31;
+  --c-sea: #0f9488;
+  --c-sky: #2c78c7;
+  --c-iris: #6a5ad6;
+  --c-plum: #a2479f;
+  --c-slate: #5f6b78;
+
+  /* Elevation */
+  --shadow-1: 0 1px 2px rgb(40 36 26 / 0.06), 0 1px 1px rgb(40 36 26 / 0.04);
+  --shadow-2: 0 8px 24px rgb(40 36 26 / 0.08), 0 2px 6px rgb(40 36 26 / 0.05);
+  --shadow-3: 0 24px 60px rgb(40 36 26 / 0.2);
+}
+
+/* Dark theme — used when the device prefers dark (unless forced light) or when forced dark. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #111413;
+    --surface: #191d1b;
+    --surface-2: #222725;
+    --surface-3: #2b312e;
+    --border: #2e3431;
+    --border-strong: #434b47;
+    --text: #eceeed;
+    --text-2: #b3bab6;
+    --text-3: #8c9590;
+    --primary: #3cc5a8;
+    --primary-hover: #5ad3b9;
+    --primary-soft: #143a33;
+    --primary-ink: #a6eadb;
+    --on-primary: #05231d;
+    --focus: #5ad3b9;
+    --xp: #f2b928;
+    --xp-strong: #f7cb57;
+    --xp-soft: #3a2f0f;
+    --xp-ink: #ffd978;
+    --success: #6ac878;
+    --success-soft: #173219;
+    --warning: #f0a846;
+    --warning-soft: #3a2a10;
+    --danger: #f27c65;
+    --danger-soft: #3d1b14;
+    --info: #74b0ee;
+    --info-soft: #142b44;
+    --c-ember: #f07b54;
+    --c-sun: #e9b430;
+    --c-moss: #7cbd59;
+    --c-sea: #38c0b3;
+    --c-sky: #62a4ea;
+    --c-iris: #9587f1;
+    --c-plum: #cb77c6;
+    --c-slate: #93a0ad;
+    --shadow-1: 0 1px 2px rgb(0 0 0 / 0.4);
+    --shadow-2: 0 8px 24px rgb(0 0 0 / 0.35);
+    --shadow-3: 0 24px 60px rgb(0 0 0 / 0.55);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #111413;
+  --surface: #191d1b;
+  --surface-2: #222725;
+  --surface-3: #2b312e;
+  --border: #2e3431;
+  --border-strong: #434b47;
+  --text: #eceeed;
+  --text-2: #b3bab6;
+  --text-3: #8c9590;
+  --primary: #3cc5a8;
+  --primary-hover: #5ad3b9;
+  --primary-soft: #143a33;
+  --primary-ink: #a6eadb;
+  --on-primary: #05231d;
+  --focus: #5ad3b9;
+  --xp: #f2b928;
+  --xp-strong: #f7cb57;
+  --xp-soft: #3a2f0f;
+  --xp-ink: #ffd978;
+  --success: #6ac878;
+  --success-soft: #173219;
+  --warning: #f0a846;
+  --warning-soft: #3a2a10;
+  --danger: #f27c65;
+  --danger-soft: #3d1b14;
+  --info: #74b0ee;
+  --info-soft: #142b44;
+  --c-ember: #f07b54;
+  --c-sun: #e9b430;
+  --c-moss: #7cbd59;
+  --c-sea: #38c0b3;
+  --c-sky: #62a4ea;
+  --c-iris: #9587f1;
+  --c-plum: #cb77c6;
+  --c-slate: #93a0ad;
+  --shadow-1: 0 1px 2px rgb(0 0 0 / 0.4);
+  --shadow-2: 0 8px 24px rgb(0 0 0 / 0.35);
+  --shadow-3: 0 24px 60px rgb(0 0 0 / 0.55);
+}
+
+/* Text size preference */
+:root[data-text="large"] { font-size: 112.5%; }
+:root[data-text="xl"] { font-size: 125%; }
+
+/* Reduced motion — honoured from the OS and from in-app settings */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 1ms !important; transition-duration: 1ms !important; scroll-behavior: auto !important; }
+}
+:root[data-motion="reduce"] *,
+:root[data-motion="reduce"] *::before,
+:root[data-motion="reduce"] *::after { animation-duration: 1ms !important; transition-duration: 1ms !important; }

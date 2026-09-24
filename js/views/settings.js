@@ -26,7 +26,7 @@ export default {
       </section>
       <section class="card card-pad stack">
         <h2 class="h3">Profile</h2>
-        <div class="setting"><div><strong>${s.profile.avatar} ${esc(s.profile.name || 'Student')}</strong><p class="small muted">${s.profile.pronouns ? esc(s.profile.pronouns) : 'No pronouns set'}</p></div><div class="row-actions"><button class="btn" data-action="profile">${icon('edit', 16)}Edit</button><button class="btn btn-ghost" data-action="wizard">${icon('reset', 16)}Run setup again</button></div></div>
+        <div class="setting"><div><strong>${s.profile.avatar} ${esc(s.profile.name || 'Student')}</strong><p class="small muted">Your name and avatar</p></div><div class="row-actions"><button class="btn" data-action="profile">${icon('edit', 16)}Edit</button><button class="btn btn-ghost" data-action="wizard">${icon('reset', 16)}Run setup again</button></div></div>
       </section>
       <section class="card card-pad stack">
         <h2 class="h3">Your data</h2>

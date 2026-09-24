@@ -32,7 +32,7 @@ export default {
     <section class="card level-hero">
       <div class="level-avatar" aria-hidden="true">${s.profile.avatar}<span class="level-num">${lv.level}</span></div>
       <div class="level-main">
-        <p class="eyebrow">${esc(s.profile.name || 'Student')}${s.profile.pronouns ? ` <span class="muted">(${esc(s.profile.pronouns)})</span>` : ''}</p>
+        <p class="eyebrow">${esc(s.profile.name || 'Student')}</p>
         <h2>Level ${lv.level} · ${lv.title}</h2>
         ${progressBar(lv.pct, { tone: 'xp', label: 'Progress to next level' })}
         <p class="small muted">${s.xp} XP total · ${lv.need - lv.into} XP to level ${lv.level + 1} (${LEVEL_TITLES[Math.min(lv.level, LEVEL_TITLES.length - 1)]})</p>
@@ -112,9 +112,6 @@ export function openProfile() {
     title: 'Your profile',
     body: `<form class="modal-form"><div class="modal-body stack">
       <label class="field"><span class="label">Display name</span><input class="input" name="displayName" maxlength="40" value="${esc(s.profile.name)}" placeholder="What should we call you?"></label>
-      <label class="field"><span class="label">Pronouns <small class="muted">(optional — only shown on your profile)</small></span>
-        <input class="input" name="pronouns" maxlength="30" value="${esc(s.profile.pronouns)}" placeholder="e.g. they/them, she/her, he/him, any" list="pronoun-list">
-        <datalist id="pronoun-list"><option>they/them</option><option>she/her</option><option>he/him</option><option>she/they</option><option>he/they</option><option>any pronouns</option></datalist></label>
       <fieldset class="field"><legend class="label">Avatar</legend>
         <div class="emoji-picker emoji-picker-lg">${AVATARS.map((a) => `<label class="emoji-opt"><input type="radio" name="avatar" value="${a}" ${s.profile.avatar === a ? 'checked' : ''}><span>${a}</span></label>`).join('')}</div>
       </fieldset>
@@ -123,7 +120,7 @@ export function openProfile() {
       el.querySelector('form').addEventListener('submit', (e) => {
         e.preventDefault();
         const f = e.target.elements;
-        update((st) => Object.assign(st.profile, { name: f.displayName.value.trim(), pronouns: f.pronouns.value.trim(), avatar: f.avatar.value }));
+        update((st) => Object.assign(st.profile, { name: f.displayName.value.trim(), avatar: f.avatar.value }));
         toast('Profile saved', { kind: 'success', emoji: s.profile.avatar });
         close();
       });

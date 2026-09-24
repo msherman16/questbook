@@ -13,7 +13,7 @@ You don't need an account and there's nothing to download. It runs in your web b
 The first time you open Questbook, a setup wizard walks you through four steps:
 
 1. **Welcome.** Choose **Set up my planner**. To look around first, choose **Explore with demo data** instead, which loads a sample semester. When you're ready to start for real, tap **Set up my planner** in the yellow banner at the top of the page.
-2. **About you.** Enter a name or nickname and pick an avatar. Pronouns are optional and only appear on your own profile.
+2. **About you.** Enter a name or nickname and pick an avatar.
 3. **Your classes.** Tap a quick pick (Math, English, Biology…) or type a class name. Then choose the days it meets and its start and end times, and tap **Add class**. Do this for each class. You can skip this step and add classes later.
 4. **Study style.** Choose how long your focus blocks and breaks are, and set the theme and text size.
 

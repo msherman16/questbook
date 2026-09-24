@@ -1,7 +1,7 @@
 // Service worker: makes Questbook load offline after the first visit.
 // Strategy: serve from cache immediately, refresh the cache in the background
 // (stale-while-revalidate). Bump VERSION when shipping to clear old caches.
-const VERSION = 'questbook-v1';
+const VERSION = 'questbook-v2';
 const APP_SHELL = [
   './',
   './index.html',

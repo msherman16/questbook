@@ -18,7 +18,7 @@ export default {
       <h2 id="ds-principles">Principles</h2>
       <div class="ds-principles">
         <div><span class="ds-emoji" aria-hidden="true">🧭</span><h3 class="h4">Neutral by default</h3><p class="small">Color never encodes gender. The brand leans on spruce green and marigold — no pink-vs-blue coding. Avatars are creatures and objects, not gendered people.</p></div>
-        <div><span class="ds-emoji" aria-hidden="true">🗣️</span><h3 class="h4">Inclusive language</h3><p class="small">Copy speaks to “you”. Teacher names show without Mr./Ms. Pronouns are optional, free-text, and only shown where you choose.</p></div>
+        <div><span class="ds-emoji" aria-hidden="true">🗣️</span><h3 class="h4">Inclusive language</h3><p class="small">Copy speaks to “you”. Teacher names show without Mr./Ms. The profile asks only for a name and an avatar.</p></div>
         <div><span class="ds-emoji" aria-hidden="true">👓</span><h3 class="h4">Readable first</h3><p class="small">Atkinson Hyperlegible for body text (designed for low-vision readers) and Lexend for headings. Text contrast meets WCAG AA in both themes.</p></div>
         <div><span class="ds-emoji" aria-hidden="true">🎮</span><h3 class="h4">Playful, not childish</h3><p class="small">Rewards use gold, confetti and emoji sparingly. Everything that moves respects “Reduce motion”.</p></div>
         <div><span class="ds-emoji" aria-hidden="true">🎨</span><h3 class="h4">Color is never alone</h3><p class="small">Subject colors always pair with an icon and a name; status uses text and icons as well as color.</p></div>

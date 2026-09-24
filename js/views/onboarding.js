@@ -65,10 +65,6 @@ const SCREENS = {
       <fieldset class="field"><legend class="label">Pick an avatar</legend>
         <div class="emoji-picker emoji-picker-lg">${AVATARS.map((a) => `<label class="emoji-opt"><input type="radio" name="ob-avatar" data-draft="avatar" value="${a}" ${draft.avatar === a ? 'checked' : ''}><span>${a}</span></label>`).join('')}</div>
       </fieldset>
-      <label class="field"><span class="label">Pronouns <small class="muted">(optional)</small></span>
-        <input class="input" data-draft="pronouns" maxlength="30" value="${esc(draft.pronouns)}" placeholder="e.g. they/them" list="ob-pronouns">
-        <datalist id="ob-pronouns"><option>they/them</option><option>she/her</option><option>he/him</option><option>she/they</option><option>he/they</option><option>any pronouns</option></datalist>
-      </label>
     </div>
     <div class="onboard-actions"><button class="btn btn-primary btn-lg btn-block" data-ob="next">Continue ${icon('chevronRight', 18)}</button></div>`,
 

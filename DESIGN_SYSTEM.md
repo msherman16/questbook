@@ -5,7 +5,7 @@ The system is calm, gender-neutral and built for accessibility first. Every valu
 ## Principles
 
 1. **Neutral by default.** Color never signals gender. The brand pairs spruce green (primary) with marigold (rewards) on warm paper, with no pink-for-girls or blue-for-boys coding. Avatars are creatures and objects, never gendered people.
-2. **Inclusive language.** Copy speaks to "you". Teacher names appear without Mr./Ms. Pronouns are optional free text and appear only on the student's own profile.
+2. **Inclusive language.** Copy speaks to "you". Teacher names appear without Mr./Ms. The profile asks only for a name and an avatar.
 3. **Readable first.** Body text uses Atkinson Hyperlegible, which was designed for low-vision readers and has distinct Il1 and O0 shapes. Headings use Lexend, which was designed to reduce visual stress. Text contrast meets WCAG AA in light and dark themes.
 4. **Playful, not childish.** Reward moments (gold, confetti, emoji) are used sparingly. All motion follows the OS setting and the in-app **Reduce motion** setting.
 5. **Color is never the only signal.** A subject color always appears with its icon and name. Status also shows as text ("Overdue · Yesterday") or an icon.

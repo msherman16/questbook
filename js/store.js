@@ -142,6 +142,8 @@ function migrate(s) {
   const b = blank();
   // Data saved before onboarding existed belongs to someone already set up.
   if (s.settings && !('onboarded' in s.settings)) s.settings.onboarded = true;
+  // Pronouns were removed from the profile; drop any previously saved value.
+  if (s.profile) delete s.profile.pronouns;
   return {
     ...b,
     ...s,
@@ -155,7 +157,7 @@ function migrate(s) {
 export function blank() {
   return {
     version: 1,
-    profile: { name: '', avatar: '🦉', pronouns: '' },
+    profile: { name: '', avatar: '🦉' },
     xp: 0,
     subjects: [],
     assignments: [],
@@ -366,7 +368,7 @@ export function demoState() {
   const s = blank();
   const t = todayISO();
   const d = (n) => addDays(t, n);
-  s.profile = { name: 'Rowan', avatar: '🦉', pronouns: '' };
+  s.profile = { name: 'Rowan', avatar: '🦉' };
   s.isDemo = true;
   s.settings.onboarded = true;
   s.settings.checklistDismissed = true;

@@ -124,7 +124,7 @@ const SCREENS = {
     <ol class="onboard-next">
       <li><span aria-hidden="true">📝</span><div><strong>Add what’s due</strong><span>Homework, tests and key dates — check them off for XP.</span></div></li>
       <li><span aria-hidden="true">⏱️</span><div><strong>Start a focus block</strong><span>Every focused minute earns 2 XP and builds your streak.</span></div></li>
-      <li><span aria-hidden="true">🃏</span><div><strong>Make a flashcard deck</strong><span>Paste “term :: meaning” lines and four study games unlock.</span></div></li>
+      <li><span aria-hidden="true">🃏</span><div><strong>Turn your notes into flashcards</strong><span>Scan or upload notes, check the cards, and four study games unlock.</span></div></li>
     </ol>
     <div class="onboard-actions"><button class="btn btn-primary btn-lg btn-block" data-ob="finish" data-autofocus>Go to my dashboard ${icon('chevronRight', 18)}</button></div>
     <p class="tiny muted center">Need a hand later? Open <strong>Help & Setup</strong> in the menu.</p>`,

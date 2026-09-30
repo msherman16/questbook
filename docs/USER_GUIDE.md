@@ -30,7 +30,7 @@ Your dashboard shows six first tasks. Complete all six to earn a **+50 XP** bonu
 | Add your classes | Classes & Subjects → **Add class** |
 | Add an assignment or key date | Assignments & Dates → **Add** |
 | Finish a focus session | Study Timer → **Start** |
-| Make a flashcard deck | Study Games → **New deck** |
+| Turn notes into a flashcard deck | Notes Library → **Make flashcards** |
 | Add a note to your library | Notes Library → **Upload files** or **Write a note** |
 | Check off your first task | Tap the circle next to any assignment |
 
@@ -49,7 +49,21 @@ Your dashboard shows six first tasks. Complete all six to earn a **+50 XP** bonu
   - *Feynman:* explain an idea simply to find the gaps in what you know
   - *Blurt sheet:* write everything you remember, then check your notes
   - *Chapter summary*
-- **Study Games:** make a deck by pasting one card per line as `term :: meaning`. Then play:
+- **Make flashcards from notes:** tap **Make flashcards** (on Notes) or **Deck from notes** (on Study Games).
+  1. Choose a source: **Scan with camera**, **Upload a file** (photo, PDF, Word, PowerPoint or text), pick a note already in your library, or paste text.
+  2. Questbook reads the text. Photos take about 5 to 20 seconds per page.
+  3. On the review screen, the text it found is on the left and the suggested cards are on the right. Fix, untick or remove cards, or tap **Add card**. If the text has mistakes, correct it and tap **Find cards again**.
+  4. Name the deck (or add to an existing one) and save. It's ready in every game.
+
+  Notes that work best:
+  - `term: meaning` or `term - meaning`, one per line
+  - a question with its answer on the next line
+  - sentences like "A catalyst is a substance that…"
+  - dates like `1776 - Declaration signed`
+  - a short heading followed by bullet points
+
+  Printed or neat notes photographed flat, straight-on and in good light scan well. Messy handwriting and blurry photos don't, so check the text.
+- **Study Games:** every deck works in all four games. You can also type a deck yourself with **New deck**, one card per line as `term :: meaning`. Then play:
   - **Flashcards:** cards you miss come back sooner (spaced repetition)
   - **Quiz Show:** 10 multiple-choice questions
   - **Match Rush:** pair terms with their meanings against the clock
@@ -103,4 +117,7 @@ Installing adds a home-screen icon and lets Questbook open without Wi-Fi.
 | The timer didn't make a sound | Check **Settings → Timer sound** and your device volume. Browsers only play sound after you've tapped the page once. |
 | No notification when the timer ends | Allow notifications for the site when your browser asks. |
 | An update isn't showing | Close every Questbook tab or window and reopen it. Installed apps update on the next launch. |
+| Scanned notes came out garbled | Retake the photo flat, straight-on and in good light, or fix the text on the review screen and tap **Find cards again**. Handwriting is the hardest to read. |
+| "No cards found" | The notes don't have clear term and meaning pairs. Edit the text so each line reads `term: meaning`, then tap **Find cards again**, or add cards by hand. |
+| Reading a photo or PDF fails | The first scan needs an internet connection to download the text reader. After that it works offline. |
 | A file won't upload | Files must be under 50 MB, and your device may be low on storage. **Settings** shows how much space is used. |

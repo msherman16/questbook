@@ -3,6 +3,7 @@ import { esc, uid, todayISO, shuffle, closeEnough, plural } from '../util.js';
 import { icon, modal, toast, confirmDialog, empty, progressBar } from '../ui.js';
 import { subjectChip, subjectOptions, colorVar } from '../components.js';
 import { openTextNote } from './notes.js';
+import { openDeckBuilder } from './deckbuilder.js';
 
 /* ------------------------------------------------------------------ */
 /* Catalog                                                             */
@@ -146,6 +147,9 @@ export default {
 
 function hub(s) {
   const today = todayISO();
+  // A deck just built from notes becomes the selected one.
+  const last = localStorageGet('qb:lastDeck');
+  if (last && last !== pickedDeck && s.decks.some((d) => d.id === last)) pickedDeck = last;
   if (pickedDeck && pickedDeck !== 'all' && !s.decks.some((d) => d.id === pickedDeck)) pickedDeck = '';
   const deckSelect = `<select class="input input-sm" data-deck-pick aria-label="Deck to play">
     ${s.decks.map((d) => `<option value="${d.id}" ${pickedDeck === d.id ? 'selected' : ''}>${subjectById(s, d.subjectId)?.icon || '🃏'} ${esc(d.name)} (${d.cards.length})</option>`).join('')}
@@ -154,7 +158,10 @@ function hub(s) {
   return `
   <header class="page-head">
     <div><p class="eyebrow">Study</p><h1>Study Games</h1><p class="lede">Turn your flashcard decks into games. Every game is built on a study technique that research shows actually works.</p></div>
-    <div class="hero-actions"><button class="btn btn-primary" data-action="new-deck">${icon('plus', 18)}New deck</button></div>
+    <div class="hero-actions">
+      <button class="btn" data-action="new-deck">${icon('plus', 18)}New deck</button>
+      <button class="btn btn-primary" data-action="from-notes">${icon('sparkles', 18)}Deck from notes</button>
+    </div>
   </header>
 
   <section aria-labelledby="h-play">
@@ -191,7 +198,7 @@ function hub(s) {
           </div>
         </div>
       </li>`;
-    }).join('')}</ul>` : empty({ emoji: '🃏', title: 'No decks yet', text: 'A deck is a set of term → meaning cards. Paste a list and every game unlocks.', action: `<button class="btn btn-primary" data-action="new-deck">${icon('plus', 18)}Create a deck</button>` })}
+    }).join('')}</ul>` : empty({ emoji: '🃏', title: 'No decks yet', text: 'A deck is a set of term → meaning cards. Scan or upload your notes and Questbook builds one for you — or type your own.', action: `<div class="row-actions center"><button class="btn btn-primary" data-action="from-notes">${icon('sparkles', 18)}Deck from notes</button><button class="btn" data-action="new-deck">${icon('plus', 18)}Type a deck</button></div>` })}
   </section>
 
   <section aria-labelledby="h-tech">
@@ -469,6 +476,7 @@ async function onClick(e) {
     return toHub();
   }
   if (a === 'new-deck') return openDeckForm();
+  if (a === 'from-notes') return openDeckBuilder();
   if (a === 'edit-deck') return openDeckForm(s.decks.find((d) => d.id === id));
   if (a === 'delete-deck') {
     const d = s.decks.find((x) => x.id === id);

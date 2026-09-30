@@ -16,7 +16,8 @@ const QUICK_START = [
   ['🗺️', 'Plan for tests', 'On any quiz or test, tap “Prep plan” to schedule short review sessions before the day.', '#/assignments', 'See assignments'],
   ['⏱️', 'Study with the timer', 'Pick a class and start a focus block. Every focused minute earns 2 XP.', '#/timer', 'Open Timer'],
   ['📎', 'Build your notes library', 'Drop in PDFs, photos of the board and handouts, or write notes from a template.', '#/notes', 'Open Notes'],
-  ['🃏', 'Make a flashcard deck', 'Paste “term :: meaning” lines, then play Flashcards, Quiz Show, Match Rush and Speed Recall.', '#/games', 'Open Games'],
+  ['✨', 'Turn notes into flashcards', 'Tap “Make flashcards”, then scan a page, upload a file or paste text. Questbook finds the terms and meanings; you check the cards and save.', '#/notes', 'Open Notes'],
+  ['🃏', 'Play to study', 'Every deck works in Flashcards, Quiz Show, Match Rush and Speed Recall. You can also type a deck as “term :: meaning” lines.', '#/games', 'Open Games'],
 ];
 
 const FAQ = [
@@ -26,6 +27,8 @@ const FAQ = [
   ['How do I move to a new phone or computer?', 'Go to Settings → Export backup, send the .json file to your new device, then Settings → Import backup there. Uploaded files aren’t in the backup, so re-upload any you need.'],
   ['What happens if I clear my browser data?', 'Your Questbook data is cleared too. Export a backup now and then (Settings → Export backup) so you can restore it.'],
   ['Can I use it on more than one device?', 'Each device keeps its own copy. Use Export/Import to copy your planner from one to another.'],
+  ['Why did my scanned notes come out wrong?', 'Reading photos works best with printed or neatly written notes, good light, and the page flat and straight-on. Messy handwriting and blurry or angled photos are hard to read. You can always fix the text on the review screen and tap “Find cards again”.'],
+  ['What kind of notes turn into good flashcards?', 'Notes written as “term: meaning” or “term - meaning”, a question with its answer on the next line, and sentences like “A catalyst is a substance that…”. Long paragraphs produce fewer cards.'],
   ['Which browsers work?', 'Current versions of Chrome, Edge, Safari (Mac, iPhone and iPad) and Firefox.'],
 ];
 

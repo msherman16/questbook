@@ -74,7 +74,9 @@ After an update, users get the new version the second time they open the app: th
 ## 6. Privacy & schools
 
 - **No personal data is collected or transmitted.** There are no accounts, analytics, cookies or backend. Planner data and uploaded files stay in the user's browser (`localStorage` and IndexedDB).
-- **One third-party request:** fonts load from Google Fonts, which means Google sees the visitor's IP address. For stricter environments (some K-12 districts), you can self-host the fonts:
+- **Notes are read on the device.** Scanning and card-finding run in the browser. Note contents are never uploaded.
+- **Second third-party request:** the first time someone scans a photo, PDF or Office file, the reading libraries (Tesseract, pdf.js, JSZip) and the English OCR data download from the jsDelivr CDN, so jsDelivr sees the visitor's IP address. The files are then cached for offline use. To avoid this, copy those libraries into the repo and change the URLs at the top of `js/extract.js`.
+- **First third-party request:** fonts load from Google Fonts, which means Google sees the visitor's IP address. For stricter environments (some K-12 districts), you can self-host the fonts:
   1. Download *Atkinson Hyperlegible* and *Lexend* (both open-source, SIL OFL).
   2. Put them in a `fonts/` folder and declare them with `@font-face` in `styles/tokens.css`.
   3. Remove the Google Fonts `<link>` tags from `index.html`.
@@ -93,6 +95,9 @@ icons/                  app icons (SVG + PNG), social preview image
 styles/                 tokens.css → base.css → components.css → views.css
 js/app.js               shell, router, wizard gating, service-worker registration
 js/store.js             all state, persistence, XP/levels/badges/quests, demo data
+js/extract.js           reads text from photos (OCR), PDFs, Word/PowerPoint
+js/cardgen.js           finds term/meaning cards in text (swap here to add AI)
+js/views/deckbuilder.js notes → flashcards flow: choose source, read, review, save
 js/views/onboarding.js  first-run setup wizard
 js/views/help.js        in-app Help & Setup page
 js/views/*.js           one module per screen

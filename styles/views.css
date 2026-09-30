@@ -414,3 +414,37 @@ ul.help-bullets { list-style: disc; }
 .faq details:first-child { border-top: 0; }
 .faq summary { cursor: pointer; font-weight: 700; }
 .faq details p { margin-top: var(--sp-2); color: var(--text-2); max-width: 70ch; }
+
+/* Notes → flashcards builder --------------------------------------- */
+.source-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-3); }
+@media (max-width: 480px) { .source-grid { grid-template-columns: minmax(0, 1fr); } }
+.source-card { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 4px; padding: var(--sp-4); border: 2px dashed var(--border-strong); border-radius: var(--r-lg); cursor: pointer; transition: all var(--dur-fast); }
+.source-card:hover, .source-card:focus-within { border-color: var(--primary); background: var(--primary-soft); }
+.source-emoji { font-size: 32px; line-height: 1.1; }
+.source-notes { display: flex; flex-direction: column; gap: 4px; max-height: 210px; overflow-y: auto; border: 1px solid var(--border); border-radius: var(--r-md); padding: 4px; }
+.source-note { display: flex; align-items: center; gap: var(--sp-2); width: 100%; text-align: left; padding: var(--sp-2) var(--sp-3); border: 0; border-radius: var(--r-sm); background: transparent; }
+.source-note:hover { background: var(--primary-soft); }
+.source-note-title { flex: 1; min-width: 0; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.reading { align-items: center; text-align: center; }
+.reading-emoji { font-size: 44px; animation: bob 1.4s ease-in-out infinite; }
+@keyframes bob { 50% { transform: translateY(-6px) rotate(-8deg); } }
+
+.builder { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: var(--sp-5); align-items: start; }
+@media (max-width: 800px) { .builder { grid-template-columns: minmax(0, 1fr); } }
+.builder-head { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-2); min-height: 2rem; }
+.builder-textarea { min-height: 300px; font-size: var(--fs-sm); }
+@media (max-width: 800px) { .builder-textarea { min-height: 160px; } }
+.builder-help summary { cursor: pointer; font-weight: 700; color: var(--primary); }
+.notice-warn { background: var(--warning-soft); color: var(--warning); }
+.bcard-list { display: flex; flex-direction: column; gap: var(--sp-2); }
+.bcard { display: flex; align-items: flex-start; gap: var(--sp-2); padding: var(--sp-2); border: 1px solid var(--border); border-radius: var(--r-md); background: var(--surface-2); }
+.bcard.is-off { opacity: 0.45; }
+.bcard-check { width: 20px; height: 20px; margin-top: 10px; accent-color: var(--primary); flex: none; }
+.bcard-fields { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.bcard-fields input { font-weight: 700; }
+.bcard-fields textarea { padding: var(--sp-2) var(--sp-3); min-height: 0; font-size: var(--fs-sm); }
+.builder-foot { align-items: flex-end; justify-content: flex-start; }
+.builder-foot .field { flex: 1 1 160px; }
+.builder-foot .form-error { flex-basis: 100%; }
+.builder-actions { display: flex; gap: var(--sp-2); margin-left: auto; }

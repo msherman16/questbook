@@ -465,7 +465,7 @@ export const GETTING_STARTED = [
   { id: 'class', emoji: '🎒', label: 'Add your classes', href: '#/classes', done: (s) => s.subjects.length > 0 },
   { id: 'task', emoji: '📝', label: 'Add an assignment or key date', href: '#/assignments', done: (s) => s.assignments.length > 0 },
   { id: 'focus', emoji: '⏱️', label: 'Finish a focus session', href: '#/timer', done: (s) => s.sessions.length > 0 },
-  { id: 'deck', emoji: '🃏', label: 'Make a flashcard deck', href: '#/games', done: (s) => s.decks.length > 0 },
+  { id: 'deck', emoji: '🃏', label: 'Turn notes into a flashcard deck', href: '#/notes', done: (s) => s.decks.length > 0 },
   { id: 'note', emoji: '📎', label: 'Add a note to your library', href: '#/notes', done: (s) => s.notes.length > 0 },
   { id: 'check', emoji: '✅', label: 'Check off your first task', href: '#/assignments', done: (s) => s.assignments.some((a) => a.done) },
 ];

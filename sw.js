@@ -1,7 +1,7 @@
 // Service worker: makes Questbook load offline after the first visit.
 // Strategy: serve from cache immediately, refresh the cache in the background
 // (stale-while-revalidate). Bump VERSION when shipping to clear old caches.
-const VERSION = 'questbook-v2';
+const VERSION = 'questbook-v3';
 const APP_SHELL = [
   './',
   './index.html',
@@ -18,6 +18,9 @@ const APP_SHELL = [
   './js/ui.js',
   './js/util.js',
   './js/components.js',
+  './js/extract.js',
+  './js/cardgen.js',
+  './js/views/deckbuilder.js',
   './js/views/home.js',
   './js/views/classes.js',
   './js/views/schedule.js',
@@ -48,7 +51,7 @@ self.addEventListener('fetch', (event) => {
   const { request } = event;
   if (request.method !== 'GET') return;
   const url = new URL(request.url);
-  const cacheable = url.origin === location.origin || url.hostname.endsWith('fonts.googleapis.com') || url.hostname.endsWith('fonts.gstatic.com');
+  const cacheable = url.origin === location.origin || url.hostname.endsWith('fonts.googleapis.com') || url.hostname.endsWith('fonts.gstatic.com') || url.hostname === 'cdn.jsdelivr.net'; // jsdelivr hosts the text-reading libraries
   if (!cacheable) return;
 
   event.respondWith(

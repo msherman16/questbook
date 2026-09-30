@@ -3,6 +3,8 @@ import { esc, uid, fmtBytes, fmtDate, dateISO } from '../util.js';
 import { icon, modal, toast, confirmDialog, empty } from '../ui.js';
 import { subjectChip, subjectOptions, colorVar } from '../components.js';
 import { putFile, getFile, deleteFile } from '../files.js';
+import { canExtract } from '../extract.js';
+import { openDeckBuilder } from './deckbuilder.js';
 
 const ui = { q: '', subject: '', kind: '' };
 const MAX_BYTES = 50 * 1024 * 1024;
@@ -60,7 +62,8 @@ export default {
       <div><p class="eyebrow">Study</p><h1>Notes Library</h1><p class="lede">One place for every handout, photo and note — searchable and sorted by class. Files stay on this device.</p></div>
       <div class="hero-actions">
         <button class="btn" data-action="write">${icon('edit', 18)}Write a note</button>
-        <label class="btn btn-primary file-btn">${icon('upload', 18)}Upload files<input type="file" multiple data-upload hidden></label>
+        <label class="btn file-btn">${icon('upload', 18)}Upload files<input type="file" multiple data-upload hidden></label>
+        <button class="btn btn-primary" data-action="flashcards">${icon('sparkles', 18)}Make flashcards</button>
       </div>
     </header>
 
@@ -111,6 +114,7 @@ export default {
         return update(() => {});
       }
       if (e.target.closest('[data-action=write]')) return openTextNote(null, { subjectId: ui.subject });
+      if (e.target.closest('[data-action=flashcards]')) return openDeckBuilder({ subjectId: ui.subject });
       const o = e.target.closest('[data-open]');
       if (o) openPreview(o.dataset.open);
     });
@@ -240,7 +244,8 @@ async function openPreview(id) {
         <button type="button" class="btn btn-ghost btn-danger-text" data-del>${icon('trash', 18)}Delete</button>
         <span class="spacer"></span>
         ${url ? `<a class="btn" href="${url}" download="${esc(n.fileName)}">${icon('download', 18)}Download</a>` : ''}
-        <button type="button" class="btn btn-primary" data-edit>${icon('edit', 18)}${n.kind === 'text' ? 'Edit' : 'Rename & tag'}</button>
+        <button type="button" class="btn" data-edit>${icon('edit', 18)}${n.kind === 'text' ? 'Edit' : 'Rename & tag'}</button>
+        ${canExtract(n) ? `<button type="button" class="btn btn-primary" data-cards>${icon('sparkles', 18)}Make flashcards</button>` : ''}
       </footer>`,
     onClose: () => url && setTimeout(() => URL.revokeObjectURL(url), 1000),
     onMount(el, close) {
@@ -248,10 +253,17 @@ async function openPreview(id) {
         close();
         n.kind === 'text' ? openTextNote(n) : openFileMeta(n);
       });
+      el.querySelector('[data-cards]')?.addEventListener('click', () => {
+        close();
+        openDeckBuilder({ noteId: n.id });
+      });
       el.querySelector('[data-del]').addEventListener('click', async () => {
         close();
         if (!(await confirmDialog(`Delete “${esc(n.title)}” from your library?`))) return;
-        if (n.kind === 'file') await deleteFile(n.id).catch(() => {});
+        if (n.kind === 'file') {
+          await deleteFile(n.id).catch(() => {});
+          await deleteFile(`text:${n.id}`).catch(() => {});
+        }
         update((st) => (st.notes = st.notes.filter((x) => x.id !== n.id)));
         toast('Deleted', { emoji: '🗑️' });
       });

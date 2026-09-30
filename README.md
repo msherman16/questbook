@@ -34,6 +34,7 @@ New visitors see a **setup wizard** that covers their profile, classes and study
 | **Assignments & Dates** | Homework, quizzes, tests, projects, study blocks and key dates, in a list or month calendar. **Prep plan** adds spaced-review sessions before a quiz or test. |
 | **Study Timer** | Pomodoro focus and break timer, tracked by class and technique. Shows 7-day and per-class charts and lets you log time by hand. |
 | **Notes Library** | Upload files by drag and drop (PDF, images, docs and so on) or write notes from templates (Cornell, Feynman, Blurt, Summary). Filter by class, tag and search, with an in-app preview. |
+| **Notes → flashcards** | Scan a page with the camera, upload a photo/PDF/Word/PowerPoint file, or paste text. The app reads the text in the browser, finds term and meaning pairs, and shows a review screen before saving a deck. |
 | **Study Games** | Flashcards (Leitner spaced repetition), Quiz Show (multiple choice), Match Rush (timed pairs) and Speed Recall (60-second typing). You can mix all decks together to practice interleaving. |
 | **Techniques** | Pomodoro, active recall, spaced repetition, practice testing, interleaving, Feynman, blurting and dual coding. Each one links to the tool that does it. |
 | **Progress & Badges** | XP, 10 level titles, 12 badges, a 16-week activity heatmap and XP history |

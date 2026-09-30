@@ -83,11 +83,17 @@ export function modal({ title, body, size = 'md', onMount, onClose }) {
       ${body}
     </div>`;
   document.body.appendChild(dlg);
-  const close = () => dlg.open && dlg.close();
-  dlg.addEventListener('close', () => {
+  // Remove the dialog ourselves rather than waiting for the browser's "close"
+  // event, which can be delayed while the tab is in the background.
+  let closed = false;
+  const close = () => {
+    if (closed) return;
+    closed = true;
+    if (dlg.open) dlg.close();
     onClose?.();
     dlg.remove();
-  });
+  };
+  dlg.addEventListener('close', close); // Esc key
   dlg.addEventListener('click', (e) => {
     if (e.target === dlg || e.target.closest('[data-close]')) close();
   });
